@@ -1,3 +1,3 @@
 #!/bin/sh
 
-go run src/sort.go test.txt out.txt
+go run src/sort.go example1.dat example_sorted.dat

@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
-utils/linux-amd64/bin/valsort out.txt
+utils/linux-amd64/bin/valsort example_sorted.dat
