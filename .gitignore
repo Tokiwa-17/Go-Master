@@ -1,3 +1,5 @@
 *.pdf
 *.md
 *.txt
+**/.vscode/
+**/build/
