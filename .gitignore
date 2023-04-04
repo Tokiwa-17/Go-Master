@@ -3,3 +3,6 @@
 *.txt
 **/.vscode/
 **/build/
+INPUT
+OUTPUT
+REFOUT
