@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
+
+	"gopkg.in/yaml.v2"
 )
 
 type ServerConfigs struct {
@@ -51,4 +52,21 @@ func main() {
 	/*
 		Implement Distributed Sort
 	*/
+	// First Step: Read the Input file
+	bytes_, err := os.ReadFile(os.Args[2])
+	if os.IsNotExist(err) {
+		log.Fatalf("File not exist\n")
+	} else if err != nil {
+		log.Fatalf("File access error\n")
+	}
+	fmt.Printf("%s open success, length: %d\n", os.Args[2], len(bytes_))
+	// Second Step: Appropriately partition the data
+	pair_num := len(bytes_) / 100
+	var mask byte = 0b11000000
+	for idx := 0; idx < pair_num; idx++ {
+		key := bytes_[idx*100 : (idx+1)*100][:10]
+		//val := bytes_[idx*100 : (idx+1)*100][10:]
+		send_idx := int((key[9] & mask) >> 6)
+		fmt.Printf("%08b %08b %d\n", mask, key[9], send_idx)
+	}
 }
