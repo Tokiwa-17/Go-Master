@@ -1,3 +1,3 @@
 #!/bin/sh
 
-utils/linux-amd64/bin/valsort example_sorted.dat
+utils/mac-intel/bin/valsort example1_sorted.dat
